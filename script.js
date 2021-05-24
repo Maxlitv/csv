@@ -1,4 +1,22 @@
-// document.addEventListener("DOMContentLoaded", processData, drawLocal);
+//check
+
+var fileTypes = ["csv"]; //acceptable file types
+
+function readURL(files) {
+  if (files && files[0]) {
+    var extension = files[0].name.split(".").pop().toLowerCase(), //file extension from input file
+      isSuccess = fileTypes.indexOf(extension) > -1; //is extension in acceptable types
+
+    if (isSuccess) {
+      return true;
+    } else {
+      alert('File gavno')
+      localStorage.removeItem('Last_uploaded_table');
+      document.getElementById("output").innerHTML = "";
+      return false;
+    }
+  }
+}
 
 window.onload = function () {
   let lastTable = localStorage.getItem("Last_uploaded_table");
@@ -9,13 +27,14 @@ window.onload = function () {
   drawOutput(lines);
 };
 
-
 function handleCsv(files) {
   // Check for the various File API support.
   if (window.FileReader) {
-    // FileReader are supported.
-    getAsText(files[0]);
-  } else {
+    if (readURL(files)){
+      getAsText(files[0]);
+    }   
+  }
+  else {
     alert("FileReader are not supported in this browser.");
   }
 }
