@@ -1,10 +1,14 @@
-document.addEventListener("DOMContentLoaded", processData, localTable);
+// document.addEventListener("DOMContentLoaded", processData, drawLocal);
 
+window.onload = function () {
+  let lastTable = localStorage.getItem("Last_uploaded_table");
+  if (!lastTable) {
+    return;
+  }
+  let lines = JSON.parse(lastTable);
+  drawOutput(lines);
+};
 
-//drawing table from localstorage
-function localTable(lines){
-  document.getElementById('output').innerHTML = localStorage.getItem('Last_uploaded_table"')
-}
 
 function handleCsv(files) {
   // Check for the various File API support.
