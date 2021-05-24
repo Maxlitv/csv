@@ -10,7 +10,7 @@ function readURL(files) {
     if (isSuccess) {
       return true;
     } else {
-      alert('File gavno')
+      alert('Please, select CSV file')
       localStorage.removeItem('Last_uploaded_table');
       document.getElementById("output").innerHTML = "";
       return false;
