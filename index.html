@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV TOOL DB</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="flex_container">
+        <div class="flex_item"><img class="logo_db" src="./assets/danske-bank-logo.svg" alt="" srcset=""></div>
+        <div class="flex_item">
+            <h1>Upload a CSV file</h1>
+        </div>
+        <div class="flex_item">
+            <input type="file" id="csvFileInput" onchange="handleCsv(this.files)" accept=".csv">
+
+            <div id="output">
+            </div>
+
+        </div>
+
+        <script src="./script.js"></script>
+</body>
+
+</html>
